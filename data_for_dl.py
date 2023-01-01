@@ -68,23 +68,23 @@ NEW_FILE_EXTENTION = '.jpg'
 print(f"Saving TRAIN images")
 for file, malign in zip(X_train, y_train):
     img = cv2.imread(f'{read_path}/{file}{OLD_FILE_EXTENTION}')
-    if malign:
+    if malign == 1:
         cv2.imwrite(f'{train_malign}/{file}{NEW_FILE_EXTENTION}', img)
-    else:
+    elif malign == 0:
         cv2.imwrite(f'{train_benign}/{file}{NEW_FILE_EXTENTION}', img)
 
 print(f"Saving VALIDATION images")
 for file, malign in zip(X_test, y_test):
     img = cv2.imread(f'{read_path}/{file}{OLD_FILE_EXTENTION}')
-    if malign:
+    if malign == 1:
         cv2.imwrite(f'{val_malign}/{file}{NEW_FILE_EXTENTION}', img)
-    else:
+    elif malign == 0:
         cv2.imwrite(f'{val_benign}/{file}{NEW_FILE_EXTENTION}', img)
 
 print(f"Saving TEST images")
 for file, malign in zip(X_val, y_val):
     img = cv2.imread(f'{read_path}/{file}{OLD_FILE_EXTENTION}')
-    if malign:
+    if malign == 1:
         cv2.imwrite(f'{test_malign}/{file}{NEW_FILE_EXTENTION}', img)
-    else:
+    elif malign == 0:
         cv2.imwrite(f'{test_benign}/{file}{NEW_FILE_EXTENTION}', img)
